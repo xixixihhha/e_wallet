@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kelei.mapper.RecordMapper">
+
+
+    <insert id="insertByConsume100" parameterType="long" >
+        insert into record (user_id, amount, type)
+        VALUES
+        (#{userId},100,1);
+    </insert>
+
+    <insert id="insertByRefund20">
+        insert into record (user_id, amount, type)
+        VALUES
+        (#{userId},20,2);
+    </insert>
+
+    <select id="findByUserId" resultType="record">
+        select * from record where user_id = #{userId};
+    </select>
+
+
+
+
+</mapper>
