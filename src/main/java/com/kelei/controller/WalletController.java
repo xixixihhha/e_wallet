@@ -8,6 +8,7 @@ import com.kelei.service.WalletService;
 import org.mybatis.logging.Logger;
 import org.mybatis.logging.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +28,11 @@ public class WalletController {
     public List<Wallet> findAll(){
 //        logger.debug("dd");
         return walletService.findAllUser();
+    }
+
+    @GetMapping("/find/{userId}")
+    public Long findBalance(@PathVariable("userId") long userId){
+        return walletService.findBalance(userId);
     }
 
 }

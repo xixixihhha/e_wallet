@@ -27,13 +27,6 @@ public class WalletServiceImpl implements WalletService {
         return walletMapper.findBalance(userId);
     }
 
-//    @Override
-//    public boolean updateBalanceConsume100(long userId) {
-//        return walletMapper.updateBalanceConsume100(userId);
-//    }
-//
-//    @Override
-//    public boolean updateBalanceAdd20(long userId) {
-//        return walletMapper.updateBalanceAdd20(userId);
-//    }
+
+
 }
