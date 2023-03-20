@@ -15,5 +15,5 @@ public class Wallet {
     private Float balance;
 
 
-//    private Wallet(){};
+
 }

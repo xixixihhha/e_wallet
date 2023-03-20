@@ -18,17 +18,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/wallet")
 public class WalletController {
-//    private static Logger logger = LoggerFactory.getLogger(WalletController.class);
 
-    @Resource
-    public WalletMapper walletMapper;
+
     @Resource
     public WalletService walletService;
 
     @GetMapping
     public List<Wallet> findAll(){
 //        logger.debug("dd");
-        return walletMapper.findAllUser();
+        return walletService.findAllUser();
     }
 
 }

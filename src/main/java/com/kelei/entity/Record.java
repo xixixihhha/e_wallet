@@ -18,11 +18,10 @@ public class Record {
     private Long userId;
 //    交易金额
     private Float amount;
-//    交易类型状态码 1、消费 2、退款
-    private int type;
+//    交易类型状态 1、消费 2、退款
+    private String type;
 //    消费时间
     private String date;
-//    无参构造器
-//    private Record(){};
+
 
 }

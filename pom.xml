@@ -69,6 +69,7 @@
   </dependency>
 
   <dependency>
+<!--    版本：5.7.19-->
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
     <scope>runtime</scope>

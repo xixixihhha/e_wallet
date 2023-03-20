@@ -24,9 +24,9 @@ public class RecordController {
     public RecordService recordService;
 
 
-/**@Description 查询用户余额记录变更
- *
- * */
+    /**@Description 查询用户余额记录变更
+     *
+     * */
     @GetMapping("/find")
     public List<Record> findByUserId(long userId){
         String dateTime= DateUtil.getDateTime();
@@ -34,16 +34,22 @@ public class RecordController {
         return recordService.findByUserId(userId);
     }
 
-//    post操作
+    /**
+     * @Description 用户消费100元
+     * PostMapping
+     * */
     @Transactional
     @RequestMapping(value = "/consume/{userId}")
-    public String insertByIdConsume100(@PathVariable("userId")long userId){
+    public String insertByIdConsume100(@PathVariable("userId")long userId) throws Exception {
 
         recordService.insertByIdConsume100(userId);
         return "消费100元成功";
     }
 
-    //    post操作
+    /**
+     * @Description 用户退款20元
+     * PostMapping
+     * */
     @Transactional
     @RequestMapping("/add/{userId}")
     public String insertByIdAdd20(@PathVariable("userId")long userId){

@@ -6,15 +6,15 @@
 <!--        <result column="id" property="id"/>-->
 <!--        <result column="user_id" property="userId"/>-->
 <!--    </resultMap>-->
-    <select id="findAllUser" resultType="wallet">
+    <select id="findAllUser" resultType="wallet" >
         select * from wallet
     </select>
 
-    <select id="findBalance" resultType="long">
+    <select id="findBalance" resultType="long" >
         select balance from wallet where user_id=#{userId}
     </select>
 
-    <update id="updateBalanceConsume100">
+    <update id="updateBalanceConsume100" >
         update wallet set balance=balance-100 where user_id=#{userId}
     </update>
 
