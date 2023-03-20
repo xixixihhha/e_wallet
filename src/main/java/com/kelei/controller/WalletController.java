@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.kelei.entity.Wallet;
 import com.kelei.mapper.WalletMapper;
+import com.kelei.service.WalletService;
 import org.mybatis.logging.Logger;
 import org.mybatis.logging.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,8 @@ public class WalletController {
 
     @Resource
     public WalletMapper walletMapper;
+    @Resource
+    public WalletService walletService;
 
     @GetMapping
     public List<Wallet> findAll(){

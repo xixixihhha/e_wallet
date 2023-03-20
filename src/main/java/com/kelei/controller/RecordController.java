@@ -4,6 +4,7 @@ import com.kelei.entity.Record;
 import com.kelei.entity.Wallet;
 import com.kelei.mapper.RecordMapper;
 import com.kelei.mapper.WalletMapper;
+import com.kelei.service.RecordService;
 import com.kelei.utils.DateUtil;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -18,10 +19,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/record")
 public class RecordController {
+
     @Resource
-    public RecordMapper recordMapper;
-    @Resource
-    public WalletMapper walletMapper;
+    public RecordService recordService;
 
 
 /**@Description 查询用户余额记录变更
@@ -31,7 +31,7 @@ public class RecordController {
     public List<Record> findByUserId(long userId){
         String dateTime= DateUtil.getDateTime();
         System.out.println("该查询时间为" +dateTime);
-        return recordMapper.findByUserId(userId);
+        return recordService.findByUserId(userId);
     }
 
 //    post操作
@@ -39,9 +39,8 @@ public class RecordController {
     @RequestMapping(value = "/consume/{userId}")
     public String insertByIdConsume100(@PathVariable("userId")long userId){
 
-        recordMapper.insertByConsume100(userId);
-        walletMapper.updateBalanceConsume100(userId);
-        return "插入成功";
+        recordService.insertByIdConsume100(userId);
+        return "消费100元成功";
     }
 
     //    post操作
@@ -49,8 +48,7 @@ public class RecordController {
     @RequestMapping("/add/{userId}")
     public String insertByIdAdd20(@PathVariable("userId")long userId){
 
-        recordMapper.insertByRefund20(userId);
-        walletMapper.updateBalanceAdd20(userId);
-        return "插入成功";
+        recordService.insertByIdAdd20(userId);
+        return "退款20元成功";
     }
 }

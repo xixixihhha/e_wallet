@@ -3,16 +3,16 @@
 <mapper namespace="com.kelei.mapper.RecordMapper">
 
 
-    <insert id="insertByConsume100" parameterType="long" >
-        insert into record (user_id, amount, type)
+    <insert id="insertByConsume100"  >
+        insert into record (user_id, amount, type,date)
         VALUES
-        (#{userId},100,1);
+        (#{userId},100,1,#{date});
     </insert>
 
-    <insert id="insertByRefund20">
-        insert into record (user_id, amount, type)
+    <insert id="insertByRefund20" >
+        insert into record (user_id, amount, type,date)
         VALUES
-        (#{userId},20,2);
+        (#{userId},20,2,#{date});
     </insert>
 
     <select id="findByUserId" resultType="record">
